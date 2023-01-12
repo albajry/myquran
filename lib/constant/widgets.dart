@@ -24,7 +24,7 @@ Widget sowerList(){
                         MainAxisAlignment.spaceBetween,
                         children: [
                           SizedBox(
-                              width: 140,
+                              width: 150,
                               child: Text(replaceArabicNumber((index+1).toString())+
                                   ' سورة ${sorah[index][0]}',
                                 style: const TextStyle(fontSize: 16.0, color: Colors.black,),

@@ -63,7 +63,7 @@ class _PageState extends State<MyPages> {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    double titConRate = height*0.07;
+    double titConRate = height*0.09;
     scrWidth = MediaQuery.of(context).size.width;
     scrHeight = MediaQuery.of(context).size.height;
     return SafeArea(
@@ -126,71 +126,68 @@ class _PageState extends State<MyPages> {
                                 height: titConRate,
                                 child : Stack(
                                     children: [
-                                      SizedBox(
-                                        height: 100,
-                                        child: Column(
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                GestureDetector(
-                                                  child: Text('سورة '+sorah[sorahIndex][0],
-                                                    style: const TextStyle(fontSize: 16,
-                                                        color: Colors.indigo),),
-                                                  onTap: () async {
-                                                    // for(int i=0; i<114; i++){
-                                                    //   int j = await DBProvider.db.getSoraAyahCount(i+1);
-                                                    //   if(j != sorah[i][3]){
-                                                    //     print("Sorah: "+sorah[i][0]+" Ayah: "+sorah[i][3].toString()+" Count: "+j.toString());
-                                                    //   }
-                                                    // }
-                                                    // DBProvider.db.getCountEntry().then((int result){
-                                                    //   print(result.toString());
-                                                    // });
-                                                    // await DBProvider.db.getLastEntry();
-                                                    // print("Sora: "+curSoraNo.toString()+
-                                                    //     "  Page: "+curPageNo.toString()+
-                                                    //     "  Line: "+curLastLine.toString()+
-                                                    //     "  Ayah: "+curAyahNo.toString()
-                                                    // );
+                                      Column(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              GestureDetector(
+                                                child: Text('سورة '+sorah[sorahIndex][0],
+                                                  style: const TextStyle(fontSize: 16,
+                                                      color: Colors.indigo),),
+                                                onTap: () async {
+                                                  // for(int i=0; i<114; i++){
+                                                  //   int j = await DBProvider.db.getSoraAyahCount(i+1);
+                                                  //   if(j != sorah[i][3]){
+                                                  //     print("Sorah: "+sorah[i][0]+" Ayah: "+sorah[i][3].toString()+" Count: "+j.toString());
+                                                  //   }
+                                                  // }
+                                                  // DBProvider.db.getCountEntry().then((int result){
+                                                  //   print(result.toString());
+                                                  // });
+                                                  // await DBProvider.db.getLastEntry();
+                                                  // print("Sora: "+curSoraNo.toString()+
+                                                  //     "  Page: "+curPageNo.toString()+
+                                                  //     "  Line: "+curLastLine.toString()+
+                                                  //     "  Ayah: "+curAyahNo.toString()
+                                                  // );
 
-                                                  },
-                                                ),
-                                                GestureDetector(
-                                                  child: Text('صفحة ${replaceArabicNumber(pageNo.toString())}',
-                                                    style: const TextStyle(fontSize: 16,
-                                                        color: Colors.indigo),),
-                                                  onTap: (){
-                                                    //DBProvider.db.deleteAyah(108, 602, 3);
-                                                    // DBProvider.db.deleteAyahRange(101, 600, 10, 10);
-                                                    //print("Delete Ayah Done");
-                                                    //DBProvider.db.clearData();
-                                                  },
-                                                ),
-                                                GestureDetector(
-                                                  child: Text('الجزء ${pageNo==121 || pageNo==201
-                                                      ? replaceArabicNumber(((pageNo-2)~/20+2).toString())
-                                                      : pageNo >= 582
-                                                      ? replaceArabicNumber('30')
-                                                      : replaceArabicNumber(((pageNo-2)~/20+1).toString())}',
-                                                    style: const TextStyle(fontSize: 16,
-                                                        color: Colors.indigo),),
-                                                  onTap:() {
-                                                      // setState(() {
-                                                      //   curAyahNo--;
-                                                      // });
-                                                     //DBProvider.db.getAyahPos(2, 4, 24);
-                                                    // print(lineStartPos.toString()+" "+xStartPos.toString());
-                                                    // print(lineFinalPos.toString()+" "+xFinalPos.toString());
-                                                  },
-                                                ),
-                                              ],
-                                            ),
-                                          ]
-                                        ),
+                                                },
+                                              ),
+                                              GestureDetector(
+                                                child: Text('صفحة ${replaceArabicNumber(pageNo.toString())}',
+                                                  style: const TextStyle(fontSize: 16,
+                                                      color: Colors.indigo),),
+                                                onTap: (){
+                                                  //DBProvider.db.deleteAyah(108, 602, 3);
+                                                  // DBProvider.db.deleteAyahRange(101, 600, 10, 10);
+                                                  //print("Delete Ayah Done");
+                                                  //DBProvider.db.clearData();
+                                                },
+                                              ),
+                                              GestureDetector(
+                                                child: Text('الجزء ${pageNo==121 || pageNo==201
+                                                    ? replaceArabicNumber(((pageNo-2)~/20+2).toString())
+                                                    : pageNo >= 582
+                                                    ? replaceArabicNumber('30')
+                                                    : replaceArabicNumber(((pageNo-2)~/20+1).toString())}',
+                                                  style: const TextStyle(fontSize: 16,
+                                                      color: Colors.indigo),),
+                                                onTap:() {
+                                                    // setState(() {
+                                                    //   curAyahNo--;
+                                                    // });
+                                                   //DBProvider.db.getAyahPos(2, 4, 24);
+                                                  // print(lineStartPos.toString()+" "+xStartPos.toString());
+                                                  // print(lineFinalPos.toString()+" "+xFinalPos.toString());
+                                                },
+                                              ),
+                                            ],
+                                          ),
+                                        ]
                                       ),
                                       Visibility(
                                         visible: showPopup,
