@@ -57,8 +57,9 @@ class _SearchState extends State<MySearch> {
                       borderRadius: BorderRadius.circular(25)
                   ),
                   child: Center(
-                    child: TextField(
+                    child: TextFormField(
                       controller: nameController,
+                      textInputAction: TextInputAction.search,
                       decoration: InputDecoration(
                         fillColor: color50[colorCode],
                         hintText: 'أدخل كلمة/كلمات البحث...',
@@ -73,28 +74,13 @@ class _SearchState extends State<MySearch> {
                         suffixIcon: IconButton(
                           icon: const Icon(Icons.search),
                           onPressed: () async{
-                            if (nameController.text.trim() == "") {
-                              showToast(context, "أدخل كلمة/كلمات البحث أولا");
-                              return;
-                            }
-                            if(radioGroup != "allConnect" && nameController.text.contains(" ")){
-                              showToast(context, "كلمة البحث يجب أن لا تحتوي على مسافة");
-                              return;
-                            }
-                            FocusManager.instance.primaryFocus?.unfocus();
-
-                            setState(() {
-                              searchAyah.clear();
-                              //SearchClass.rootSearch(searchWord)
-                            //String searchText = '';
-
-                            //searchText = nameController.text;
-                              simpleSearch(nameController.text);
-                              //SearchClass.rootSearch(nameController.text, false);
-                            });
+                            startSearch();
                           },
                         ),
                       ),
+                      onFieldSubmitted: (term) async {
+                        startSearch();
+                      },
                     ),
                     ),
                   ),
@@ -247,6 +233,27 @@ class _SearchState extends State<MySearch> {
   }
   loadAsset() async{
     quranText = await rootBundle.loadString("assets/quranText.txt");
+  }
+  void startSearch(){
+    if (nameController.text.trim() == "") {
+      showToast(context, "أدخل كلمة/كلمات البحث أولا");
+      return;
+    }
+    if(radioGroup != "allConnect" && nameController.text.contains(" ")){
+      showToast(context, "كلمة البحث يجب أن لا تحتوي على مسافة");
+      return;
+    }
+    FocusManager.instance.primaryFocus?.unfocus();
+
+    setState(() {
+      searchAyah.clear();
+      //SearchClass.rootSearch(searchWord)
+      //String searchText = '';
+
+      //searchText = nameController.text;
+      simpleSearch(nameController.text);
+      //SearchClass.rootSearch(nameController.text, false);
+    });
   }
   void showToast(BuildContext context, String myMsg) {
     Fluttertoast.showToast(

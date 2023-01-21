@@ -65,10 +65,15 @@ class _HomePageState extends State<MyHomePage>  with TickerProviderStateMixin{
       });
       _permissionStatus = await Permission.storage.status;
       if (_permissionStatus != PermissionStatus.granted) {
-        PermissionStatus permissionStatus = await Permission.storage.request();
-        setState(() {
-          _permissionStatus = permissionStatus;
-        });
+        await Permission.storage.request();
+      }
+      _permissionStatus = await Permission.accessMediaLocation.status;
+      if (_permissionStatus != PermissionStatus.granted) {
+        await Permission.accessMediaLocation.request();
+      }
+      _permissionStatus = await Permission.manageExternalStorage.status;
+      if (_permissionStatus != PermissionStatus.granted) {
+        await Permission.manageExternalStorage.request();
       }
       WidgetsFlutterBinding.ensureInitialized();
       await FlutterDownloader.initialize(debug: false);

@@ -140,7 +140,7 @@ Widget partsList(){
                       for (int i = 0; i <= 113; i++) {
                         if (pageNo >= sorah[i][1] &&
                             pageNo < sorah[i + 1][1]) {
-                          sorahIndex = i;
+                          sorahIndex = i+1;
                           break;
                         }
                       }
@@ -211,7 +211,7 @@ expandableContent(BuildContext context, int index) {
                 pageNo = quarters[index*8+i][3]-1;
                 for(int i=0; i<=113; i++){
                   if(pageNo >= sorah[i][1] && pageNo < sorah[i+1][1]){
-                    sorahIndex=i;
+                    sorahIndex=i+1;
                     break;
                   }
                 }

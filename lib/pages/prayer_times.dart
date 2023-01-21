@@ -236,7 +236,7 @@ class _PrayerTime extends State<PrayerTime> {
                         height: mySize,
                         margin: const EdgeInsets.all(2.0),
                         decoration: BoxDecoration(
-                          color: dohr
+                          color: fajr
                               ? color100[colorCode]
                               : color200[colorCode],
                           shape: BoxShape.circle,
@@ -244,10 +244,9 @@ class _PrayerTime extends State<PrayerTime> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Text(
-                                'الظهر', style: TextStyle(fontSize: 20)),
+                            const Text('الفجر', style: TextStyle(fontSize: 20)),
                             Text(replaceArabicNumber(
-                                tl.DateFormat.jm().format(prayerTimes.dhuhr)),
+                                tl.DateFormat.jm().format(prayerTimes.fajr)),
                                 style: const TextStyle(fontSize: 20)),
                           ],
                         ),
@@ -287,7 +286,7 @@ class _PrayerTime extends State<PrayerTime> {
                         height: mySize,
                         margin: const EdgeInsets.all(2.0),
                         decoration: BoxDecoration(
-                          color: fajr
+                          color: dohr
                               ? color100[colorCode]
                               : color200[colorCode],
                           shape: BoxShape.circle,
@@ -295,9 +294,10 @@ class _PrayerTime extends State<PrayerTime> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Text('الفجر', style: TextStyle(fontSize: 20)),
+                            const Text(
+                                'الظهر', style: TextStyle(fontSize: 20)),
                             Text(replaceArabicNumber(
-                                tl.DateFormat.jm().format(prayerTimes.fajr)),
+                                tl.DateFormat.jm().format(prayerTimes.dhuhr)),
                                 style: const TextStyle(fontSize: 20)),
                           ],
                         ),
@@ -317,7 +317,7 @@ class _PrayerTime extends State<PrayerTime> {
                         height: mySize,
                         margin: const EdgeInsets.all(2.0),
                         decoration: BoxDecoration(
-                          color: isha
+                          color: asr
                               ? color100[colorCode]
                               : color200[colorCode],
                           shape: BoxShape.circle,
@@ -326,9 +326,9 @@ class _PrayerTime extends State<PrayerTime> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             const Text(
-                                'العشاء', style: TextStyle(fontSize: 20)),
+                                'العصر', style: TextStyle(fontSize: 20)),
                             Text(replaceArabicNumber(
-                                tl.DateFormat.jm().format(prayerTimes.isha)),
+                                tl.DateFormat.jm().format(prayerTimes.asr)),
                                 style: const TextStyle(fontSize: 20)),
                           ],
                         ),
@@ -369,7 +369,7 @@ class _PrayerTime extends State<PrayerTime> {
                         height: mySize,
                         margin: const EdgeInsets.all(2.0),
                         decoration: BoxDecoration(
-                          color: asr
+                          color: isha
                               ? color100[colorCode]
                               : color200[colorCode],
                           shape: BoxShape.circle,
@@ -378,9 +378,9 @@ class _PrayerTime extends State<PrayerTime> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             const Text(
-                                'العصر', style: TextStyle(fontSize: 20)),
+                                'العشاء', style: TextStyle(fontSize: 20)),
                             Text(replaceArabicNumber(
-                                tl.DateFormat.jm().format(prayerTimes.asr)),
+                                tl.DateFormat.jm().format(prayerTimes.isha)),
                                 style: const TextStyle(fontSize: 20)),
                           ],
                         ),
